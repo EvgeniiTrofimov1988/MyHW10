@@ -141,11 +141,23 @@ public class RadioTest {
     @Test
     public void shouldIncreaseVolume() {
         Radio cond = new Radio();
-        cond.setCurrentVolume(0);
+        cond.setCurrentVolume(99);
 
         cond.increaseVolume();
 
-        int expected = 1;
+        int expected = 100;
+        int actual = cond.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+     public void shouldIncreaseVolumeOverMax() {
+        Radio cond = new Radio();
+        cond.setCurrentVolume(100);
+
+        cond.increaseVolume();
+
+        int expected = 100;
         int actual = cond.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -164,6 +176,18 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldDecreaseVolumeOverMin() {
+        Radio cond = new Radio();
+        cond.setCurrentVolume(0);
+
+        cond.decreaseVolume();
+
+        int expected = 0;
+        int actual = cond.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void shouldSetToMaxVolume() {
@@ -189,4 +213,5 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
 }
