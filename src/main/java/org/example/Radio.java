@@ -2,6 +2,7 @@ package org.example;
 
 public class Radio {
     private int currentStation;
+    private int currentVolume;
 
     public int getCurrentStation() {
         return currentStation;
@@ -34,10 +35,7 @@ public class Radio {
         }
     }
 
-    private int currentVolume;
-
     public int getCurrentVolume() {
-
         return currentVolume;
     }
 
